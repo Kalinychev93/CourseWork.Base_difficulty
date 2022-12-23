@@ -12,12 +12,12 @@ public class EmployeeUtility {
         }
     }
 
-    public static void calculatedSum(Employee[] employees) {
+    public static int calculatedSum(Employee[] employees) {
         int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             sum += employees[i].getSalary();
         }
-        System.out.println("Сумма зарплат в месяц составляет = " + sum);
+        return sum;
     }
 
     public static void findEmployeeWithMaximumSalary(Employee[] employees) {
@@ -29,7 +29,26 @@ public class EmployeeUtility {
                 EmployeeWithMaxSalary = employee.getFirstName() + " " + employee.getPatronymic() + " " + employee.getLastName();
             }
         }
-        System.out.println("Самая высокая зарплата у сотрудника - " + EmployeeWithMaxSalary + ", она составляет " + maximumSalary);
+        System.out.println("Максимальная зарплата у сотрудника - " + EmployeeWithMaxSalary + ", она составляет " + maximumSalary);
+    }
+    public static String findEmployeeWithMinimalSalary(Employee[] employees) {
+        int minimumSalary = calculatedSum(employees);
+        String EmployeeWithMinSalary = "Сотрудник с минимальной зарплатой";
+        for (Employee employee : employees) {
+            if (employee.getSalary() < minimumSalary) {
+                minimumSalary = employee.getSalary();
+                EmployeeWithMinSalary = employee.getFirstName() + " " + employee.getPatronymic() + " " + employee.getLastName();
+            }
+        }
+        return "Минимальная зарплата у сотрудника - " + EmployeeWithMinSalary + ", она составляет "+ minimumSalary;
     }
 
+    public static int findAverageSalary(Employee[] employees) {
+        int sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            sum += employees[i].getSalary();
+        }
+        int averageSalary = sum / employees.length;
+        return averageSalary;
+    }
 }

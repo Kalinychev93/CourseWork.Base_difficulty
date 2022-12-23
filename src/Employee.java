@@ -14,7 +14,7 @@ public class Employee {
         this.lastName = lastName;
         this.department = department;
         this.salary = salary;
-        id = 1 + counter++;//здесь можно оставить "id = conter++", но я не был уверен, что бывает id = 0
+        id = 1 + counter++;//здесь можно оставить "id = counter++", но я не был уверен, что бывает id = 0
     }
 
     public String getFirstName() {
@@ -53,6 +53,4 @@ public class Employee {
     public String toString() {
         return "Ф.И.О. сотрудника: " + firstName + " " + patronymic + " " + lastName + ", Отдел № " + department + ", заработная плата = " + salary + ", id =  " + id;
     }
-
-
 }
